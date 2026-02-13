@@ -21,6 +21,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Frames of Us",
   description: "A love story, mapped in memories",
+  icons: {
+    icon: "/nikki.png",
+    apple: "/nikki.png",
+  },
 };
 
 export const viewport: Viewport = {
