@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,9 +22,15 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Frames of Us",
   description: "A love story, mapped in memories",
+  manifest: "/manifest.json",
   icons: {
     icon: "/nikki.png",
     apple: "/nikki.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Frames of Us",
   },
 };
 
@@ -48,6 +55,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <ServiceWorkerRegister />
         {children}
       </body>
     </html>

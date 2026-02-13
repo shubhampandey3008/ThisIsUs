@@ -1,0 +1,24 @@
+{
+  "name": "Frames of Us",
+  "short_name": "Frames of Us",
+  "description": "A love story, mapped in memories",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF8F5",
+  "theme_color": "#FDF8F5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/nikki.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/nikki.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
