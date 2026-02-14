@@ -36,6 +36,7 @@ export default function Experience() {
     latitude: number;
     longitude: number;
   } | null>(null);
+  const [mapFocusTrigger, setMapFocusTrigger] = useState(0);
 
   useEffect(() => {
     if (!activeMemoryId && sortedMemories.length > 0) {
@@ -73,12 +74,15 @@ export default function Experience() {
           <MemoryMap
             memories={sortedMemories}
             activeMemoryId={activeMemoryId}
+            mapFocusTrigger={mapFocusTrigger}
             onActiveMemoryChange={(id) => {
               setActiveMemoryId(id);
+              setMapFocusTrigger((prev) => prev + 1);
             }}
             onMemoryOpen={(id) => {
               setModalMemoryId(id);
               setActiveMemoryId(id);
+              setMapFocusTrigger((prev) => prev + 1);
             }}
             isPickingLocation={isPickingLocation}
             onTogglePickingLocation={() => {
@@ -111,10 +115,12 @@ export default function Experience() {
             activeMemoryId={activeMemoryId}
             onActiveMemoryChange={(id) => {
               setActiveMemoryId(id);
+              setMapFocusTrigger((prev) => prev + 1);
             }}
             onMemoryOpen={(id) => {
               setModalMemoryId(id);
               setActiveMemoryId(id);
+              setMapFocusTrigger((prev) => prev + 1);
             }}
           />
         </section>

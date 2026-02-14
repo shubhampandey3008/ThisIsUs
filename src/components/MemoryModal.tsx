@@ -25,13 +25,14 @@ export default function MemoryModal({
         onClick={onClose}
       />
 
-      <article className="pointer-events-auto relative z-10 mb-3 w-full max-w-md rounded-3xl bg-background shadow-2xl shadow-black/40 sm:mb-0">
-        <div className="relative h-56 w-full overflow-hidden rounded-t-3xl">
+      <article className="pointer-events-auto relative z-10 mb-3 w-full max-w-md overflow-hidden rounded-3xl bg-background shadow-2xl shadow-black/40 sm:mb-0 max-h-[90vh] flex flex-col">
+        <div className="relative w-full shrink-0 overflow-hidden rounded-t-3xl bg-black/90">
           <Image
             src={memory.imageUrl}
             alt={memory.title}
-            fill
-            className="object-cover"
+            width={800}
+            height={600}
+            className="object-contain w-full h-auto max-h-[50vh]"
             sizes="(max-width: 768px) 100vw, 420px"
             priority
           />
@@ -68,7 +69,7 @@ export default function MemoryModal({
           </div>
         </div>
 
-        <div className="space-y-3 px-4 pb-3 pt-3">
+        <div className="space-y-3 px-4 pb-3 pt-3 overflow-y-auto">
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
             {memory.description}
           </p>

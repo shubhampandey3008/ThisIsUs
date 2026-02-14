@@ -15,6 +15,7 @@ import "leaflet/dist/leaflet.css";
 type MemoryMapProps = {
   memories: Memory[];
   activeMemoryId: string | null;
+  mapFocusTrigger: number;
   onActiveMemoryChange: (id: string) => void;
   onMemoryOpen: (id: string) => void;
   isPickingLocation: boolean;
@@ -26,8 +27,10 @@ const NEW_DELHI: LatLngExpression = [28.6139, 77.209];
 
 function MapController({
   activeMemory,
+  focusTrigger,
 }: {
   activeMemory: Memory | null;
+  focusTrigger: number;
 }) {
   const map = useMap();
 
@@ -41,7 +44,7 @@ function MapController({
     map.flyTo(nextCenter, 13, {
       duration: 1.4,
     });
-  }, [activeMemory, map]);
+  }, [activeMemory, focusTrigger, map]);
 
   return null;
 }
@@ -118,6 +121,7 @@ function createPinIcon(active: boolean) {
 export default function MemoryMap({
   memories,
   activeMemoryId,
+  mapFocusTrigger,
   onActiveMemoryChange,
   onMemoryOpen,
   isPickingLocation,
@@ -244,7 +248,7 @@ export default function MemoryMap({
           </CircleMarker>
         )}
 
-        <MapController activeMemory={activeMemory} />
+        <MapController activeMemory={activeMemory} focusTrigger={mapFocusTrigger} />
         <LocationPicker
           enabled={isPickingLocation}
           onPick={onLocationPicked}
